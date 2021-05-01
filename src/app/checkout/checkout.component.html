@@ -1,0 +1,30 @@
+<div class="container">
+  <form (ngSubmit)="onOrder()" [formGroup]="checkoutForm" class="form">
+    <h2>Molimo unesite podatke za dostavu</h2>
+    <mat-form-field class="full-width">
+      <mat-label>Ime</mat-label>
+      <input formControlName="name" matInput type="text">
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <mat-label>Prezime</mat-label>
+      <input formControlName="lastName" matInput type="text">
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <mat-label>Ulica</mat-label>
+      <input formControlName="street" matInput type="text">
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <mat-label>Poštanski broj</mat-label>
+      <input formControlName="poNumber" matInput type="number">
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <mat-label>Grad</mat-label>
+      <input formControlName="city" matInput type="text">
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <mat-label>Telefon</mat-label>
+      <input formControlName="phone" matInput type="number">
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit" [disabled]="checkoutForm.invalid">Naruči</button>
+  </form>
+</div>

@@ -1,0 +1,25 @@
+<div class="container">
+  <form (ngSubmit)="onEditPhone()" [formGroup]="phoneForm" class="form">
+    <mat-form-field class="full-width">
+      <mat-label>Brend</mat-label>
+      <input formControlName="brand" matInput type="text">
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <mat-label>Tip uređaja</mat-label>
+      <input formControlName="type" matInput type="text">
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <mat-label>Slika</mat-label>
+      <input formControlName="picture" matInput type="text">
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <mat-label>Cijena (KM)</mat-label>
+      <input formControlName="price" matInput type="number">
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <mat-label>Opis</mat-label>
+      <textarea formControlName="description" matInput></textarea>
+    </mat-form-field>
+    <button mat-raised-button color="accent" type="submit">Izmijeni</button>
+  </form>
+</div>

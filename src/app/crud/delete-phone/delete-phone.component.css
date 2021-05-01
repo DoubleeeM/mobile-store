@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.search-box {
+  display: flex;
+}
+
+.form-field {
+  width: 200px;
+}
+
+.search-icon {
+  margin-top: 10px;
+}
+
+.card {
+  max-width: 400px;
+  margin: 30px;
+}

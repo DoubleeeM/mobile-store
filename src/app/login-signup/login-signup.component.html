@@ -1,0 +1,42 @@
+<div class="container">
+  <div *ngIf="isLoading">
+    <mat-spinner></mat-spinner>
+  </div>
+  <div *ngIf="isLogin else isSignUp">
+  <form (ngSubmit)="login()" [formGroup]="loginForm" class="form">
+    <h3>Prijava</h3>
+    <mat-form-field class="full-width">
+      <mat-label>E-mail adresa</mat-label>
+      <input formControlName="loginEmail" matInput type="text">
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <mat-label>Šifra</mat-label>
+      <input formControlName="loginPassword" matInput type="password">
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">Prijava</button>
+    <span>  ili  </span>
+    <button mat-raised-button color="accent" type="button" (click)="switchForm()">Registruj se</button>
+  </form>
+  </div>
+  <ng-template #isSignUp>
+  <form (ngSubmit)="signUp()" [formGroup]="signUpForm" class="form">
+    <h3>Registracija</h3>
+    <mat-form-field class="full-width">
+      <mat-label>E-mail adresa</mat-label>
+      <input formControlName="signUpEmail" matInput type="text">
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <mat-label>Šifra</mat-label>
+      <input formControlName="signUpPassword" matInput type="password">
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <mat-label>Potvrdite šifru</mat-label>
+      <input formControlName="signUpPasswordConfirm" matInput type="password">
+      <mat-error>Šifre nisu iste</mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit" [disabled]="signUpForm.invalid">Registracija</button>
+    <span>  ili  </span>
+    <button mat-raised-button color="accent" type="button" (click)="switchForm()">Prijavi se</button>
+  </form>
+  </ng-template>
+</div>

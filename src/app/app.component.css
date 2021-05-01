@@ -1,0 +1,19 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+.padding-spacer {
+  padding-left: 30px;
+}
+
+.wrapper {
+  padding: 10px;
+  background-color: #ebedff;
+  min-height: 100%;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}

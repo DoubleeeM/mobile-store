@@ -1,0 +1,29 @@
+<div *ngIf="(total | async) > 0 else empty">
+  <div *ngFor="let phone of cartPhones | async" class="container">
+    <mat-card  class="card">
+      <mat-card-header>
+        <mat-card-title>{{ phone.brand }}</mat-card-title>
+        <mat-card-subtitle>{{ phone.type }}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="{{ phone.picture }}" alt="Photo of a {{ phone.type }}">
+      <mat-card-content>
+        <p>Cijena: {{ phone.price }}KM</p>
+        <p>Količina: {{ phone.amount }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="addAmount(phone.id)">Dodaj količinu</button>
+        <button mat-raised-button color="warn" (click)="reduceAmount(phone.id)">Oduzmi količinu</button>
+        <button mat-raised-button color="warn" (click)="removeFromCart(phone.id)">Ukloni iz korpe</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+  <div class="container">
+    <button mat-raised-button color="accent" class="button" (click)="toCheckout()">Kupi</button>
+  </div>
+</div>
+
+<ng-template #empty>
+  <div class="empty-container">
+    <p>Korpa je prazna</p>
+  </div>
+</ng-template>
