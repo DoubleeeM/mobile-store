@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Phone } from 'src/app/phone.model';
 import { PhoneService } from 'src/app/services/phone.service';
-import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 
 @Component({
   selector: 'app-delete-phone',
@@ -17,8 +16,7 @@ export class DeletePhoneComponent implements OnInit {
 
   constructor(
     private phoneService: PhoneService,
-    private router: Router,
-    private shoppingCartService: ShoppingCartService) { }
+    private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.phoneService.getPhones().subscribe(phones => {
@@ -34,6 +32,10 @@ export class DeletePhoneComponent implements OnInit {
   onDeletePhone(phoneId: string): void {
     this.phoneService.deletePhone(phoneId).subscribe(resData => {
       console.log(resData);
+      this.snackBar.open('Telefon je izbrisan iz baze', 'Zatvori');
+    }, error => {
+      console.log(error);
+      this.snackBar.open('Desila se greška', 'Zatvori');
     });
   }
 

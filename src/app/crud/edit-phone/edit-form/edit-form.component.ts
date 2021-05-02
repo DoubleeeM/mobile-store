@@ -5,6 +5,7 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PhoneService } from 'src/app/services/phone.service';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-edit-form',
@@ -28,7 +29,7 @@ export class EditFormComponent implements OnInit {
     private phoneService: PhoneService,
     private router: Router,
     private route: ActivatedRoute,
-    private shoppingCartService: ShoppingCartService) {
+    private snackBar: MatSnackBar) {
     this.phoneBrand = fb.control('');
     this.phoneType = fb.control('');
     this.phonePicture = fb.control('');
@@ -59,7 +60,13 @@ export class EditFormComponent implements OnInit {
       this.phoneDescription.value,
       this.phoneId)
     .subscribe(resData => {
-      console.log(resData); }
+      console.log(resData);
+      this.snackBar.open('Telefon je uspiješno izmijenjen', 'Zatvori');
+      this.router.navigate(['/admin']);
+    }, error => {
+        console.log(error);
+        this.snackBar.open('Desila se greška', 'Zatvori');
+      }
       );
   }
 

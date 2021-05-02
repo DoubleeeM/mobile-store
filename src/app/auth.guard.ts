@@ -14,6 +14,7 @@ export class AuthGuard implements CanActivate {
     private router: Router
   ) {}
 
+  // if user has admin e-mail he can visit /admin page
   canActivate(
     route: ActivatedRouteSnapshot,
     router: RouterStateSnapshot):
@@ -21,8 +22,9 @@ export class AuthGuard implements CanActivate {
       return this.userService.user.pipe(
         take(1),
         map(user => {
-          const isAuth = !!user;
-          if (isAuth) {
+          // const isAuth = !!user;
+          // if (isAuth)
+          if (user.email === 'mahir@mehinovic.com') {
             return true;
           }
           return this.router.createUrlTree(['/phones']);

@@ -1,4 +1,3 @@
-import { Observable } from 'rxjs';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';

@@ -16,7 +16,7 @@ const routes: Routes = [
   {path: 'shopping-cart', component: ShoppingCartComponent},
   {path: 'login', component: LoginSignupComponent},
   {path: 'checkout', component: CheckoutComponent},
-  {path: 'account', component: ProfileComponent, canActivate: [AuthGuard]},
+  {path: 'account', component: ProfileComponent},
   {path: 'admin', component: CrudComponent, canActivate: [AuthGuard]},
   {path: 'edit/:id', component: EditFormComponent, canActivate: [AuthGuard]},
   {path: '', redirectTo: 'phones', pathMatch: 'full'}

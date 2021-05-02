@@ -9,7 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PhonesComponent } from './phones/phones.component';
 import { AddPhoneComponent } from './crud/add-phone/add-phone.component';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { PhoneComponent } from './phone/phone.component';
 import { FilterPipe } from './filter.pipe';

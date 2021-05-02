@@ -1,10 +1,9 @@
 import { CartItems, CartPhone, Phone } from './../phone.model';
 import { Component, OnInit } from '@angular/core';
-import { filter, map } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { PhoneService } from '../services/phone.service';
 import { ShoppingCartService } from '../services/shopping-cart.service';
 import { combineLatest, Observable } from 'rxjs';
-import { isDataSource } from '@angular/cdk/collections';
 import { Router } from '@angular/router';
 
 @Component({

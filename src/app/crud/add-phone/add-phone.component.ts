@@ -1,6 +1,7 @@
 import { PhoneService } from '../../services/phone.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-add-phone',
@@ -17,7 +18,8 @@ export class AddPhoneComponent implements OnInit {
   phoneForm: FormGroup;
 
   constructor(fb: FormBuilder,
-              private phoneService: PhoneService) {
+              private phoneService: PhoneService,
+              private snackBar: MatSnackBar) {
     this.phoneBrand = fb.control('');
     this.phoneType = fb.control('');
     this.phonePicture = fb.control('');
@@ -43,8 +45,11 @@ export class AddPhoneComponent implements OnInit {
       this.phonePrice.value,
       this.phoneDescription.value)
     .subscribe(resData => {
-      console.log(resData); }
-      );
+      this.snackBar.open('Telefon je dodan u bazu', 'Zatvori');
+      console.log(resData); }, error => {
+        console.log(error);
+        this.snackBar.open('Desila se greška', 'Zatvori');
+      });
     this.reset();
   }
 

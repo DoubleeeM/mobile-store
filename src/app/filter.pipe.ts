@@ -4,6 +4,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class FilterPipe implements PipeTransform {
 
   transform(list: any[], filterText: string): any {
-    return list ? list.filter(item => item.brand.search(new RegExp(filterText, 'i')) > -1) : [];
+    return list ? list.filter(item => item.brand.search(new RegExp(filterText, 'i')) > -1) : [];  // filter list of phones by brand
   }
 }
