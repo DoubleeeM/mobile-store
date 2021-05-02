@@ -9,6 +9,7 @@ export class User {
       if (!this.userTokenExpirationDate || new Date() > this.userTokenExpirationDate) {
         return null;
       }
+
       return this.userToken;
 
     }
